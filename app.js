@@ -2,8 +2,7 @@ const social = require('./232544P');
 
 console.log("Starting social media module")
 
-
-console.log("Tesing FunctionAddCPosts\n")
+console.log("Tesing FunctionAddPosts\n")
 //testing functionAddposts 
 social.functionAddPosts("Test", "new");
 social.functionAddPosts("Test2", "meow");
