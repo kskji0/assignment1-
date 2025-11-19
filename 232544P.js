@@ -3,22 +3,35 @@ let WPostID= 0;
 
 module.exports = {
 
-  // Upload posts by username and content.
-  functionAddPosts(username, content) {
+ functionAddPosts(username, content) {
 
-    // Count how many posts user already made
-    const userPostCount = posts.filter(p => p.username === username).length;
+  // Count how many posts the user already made
+  const userPostCount = posts.filter(p => p.username === username).length;
 
-    // Next PostID for this user
-    let NewPostID = parseInt(userPostCount + 1);
+  // User-specific PostID
+  const UserPostID = userPostCount + 1;
 
-    const newPost = { UserPostID: NewPostID,  WPostID: WPostID, username, content, likes: 0, comments: []};
+  // Global post ID BEFORE incrementing
+  const globalPostID = WPostID;
 
-    posts.push(newPost);
-    WPostID++; 
-    return `User:${username} Uploaded a new post!\n`+
-    `GlobalPostID:${WPostID}, Your PostID:${NewPostID}`;
-  },
+  const newPost = { 
+    UserPostID,  
+    WPostID: globalPostID, 
+    username, 
+    content, 
+    likes: 0, 
+    comments: []
+  };
+
+  posts.push(newPost);
+  WPostID++;  // Increase global post count
+
+  console.log(
+    `Post created successfully!\n` +
+    `Amount of post ${username} have: ${UserPostID}\n` +
+    `Global Post ID: ${globalPostID}\n`
+  );
+},
 
 
   // Add a comment to a post by PostID
@@ -63,7 +76,35 @@ module.exports = {
   return details;
   },
 
-  fucntionLikePost(){
+ //function LikePost
+functionLikePost(postID, username) {
 
-  },
+  const post = posts.find(p => p.WPostID === postID);
+  if (!post) {
+    return "Post not found, please try again.";
+  }
+  post.likes += 1;
+
+  return `${username} liked post #${postID}. Total likes: ${post.likes}`;
+
+},
+
+  //Function DeletePost
+ functionDeletePost(username ,postID) {
+  const index = posts.findIndex(p => p.WPostID === postID);
+
+if (index === -1) {
+  return "Post not found.";
+} 
+else if (posts[index].username !== username) {
+  return "You can only delete your own post.";
+}
+else {
+  posts.splice(index, 1);
+  return "Post deleted.";
+}
+
+
+}
+
 };
