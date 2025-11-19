@@ -1,10 +1,35 @@
-# Assignment 1
+# Assignment 1 – Social Media Node Module
+## Overview
+This project is a simple social media simulation module built using Node.js.
+Users can create posts, comment, like, delete posts, and view post details.
+A JavaScript array is used as a dummy database, with both UserPostID and GlobalPostID (WPostID) generated automatically.
 
-In this readme file, describe how to use your node module. It could be similar to **app.js** from Lab2, where you call some functions in your node module and display the output. Describe how to setup your node module, if any. Describe how to call the functions, what parameters required and so on.
+## Setup
+Install Node.js
+Import the module in your app.js:
+const social = require('./<your_module_name>.js');
 
-You can press **Ctrl+Shift+V** in this file in Visual Studio Code to see a live preview of the readme file.
+## Functions
+1. Add Post
 
-For some tips in formatting text in readme file, refer to https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+Create a new post.
 
-# References
-Provide the references that you have used to support your assignment. 
+social.functionAddPosts(username, content);
+
+2. Comment on Post
+social.functionCommentPost(postID, username, comment);
+
+3. Like a Post
+social.functionLikePost(postID);
+
+4. Delete a Post
+social.functionDeletePost(username, postID);
+
+5. View Post Details
+social.functionViewDetails(postID);
+
+## Example Usage
+console.log(social.functionAddPosts("Test", "Hello"));
+console.log(social.functionCommentPost(0, "UserA", "Nice!"));
+console.log(social.functionLikePost(0));
+console.log(social.functionViewDetails(0));

@@ -1,17 +1,19 @@
 const social = require('./232544P');
 
+console.log("Starting social media module")
+
+
 console.log("Tesing FunctionAddCPosts\n")
 //testing functionAddposts 
 social.functionAddPosts("Test", "new");
 social.functionAddPosts("Test2", "meow");
 social.functionAddPosts("Test", "wow");
 
-
 console.log("\nTesing FunctionAddComment\n")
 
 //testing functionAddComment
 console.log(social.functionCommentPost(1,"new user","Testing"));
-console.log(social.functionCommentPost(1,"Test","good"));
+console.log(social.functionCommentPost(1,"Test","boo"));
 console.log(social.functionCommentPost(0,"newUser","Testing2"));
 
 console.log("\nTesing functionLikePost\n")
@@ -27,4 +29,5 @@ console.log(social.functionDeletePost("Test", 2))
 console.log("\nTesing functionViewDetails\n")
 //testing functionViewDetails
 console.log(social.functionViewDetails(2));
+console.log(social.functionViewDetails(1));
 
