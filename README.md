@@ -6,8 +6,7 @@ A JavaScript array is used as a dummy database, with both UserPostID and GlobalP
 
 ## Setup
 Install Node.js
-Import the module in your app.js:
-const social = require('./<your_module_name>.js');
+Import the module in your app.js
 
 ## Functions
 1️⃣ Add a Post
