@@ -10,26 +10,104 @@ Import the module in your app.js:
 const social = require('./<your_module_name>.js');
 
 ## Functions
-1. Add Post
+1️⃣ Add a Post
 
-Create a new post.
+Creates a new post with:
+
+Username
+
+Content
+
+Auto-assigned UserPostID
+
+Auto-assigned GlobalPostID
+
+Usage:
 
 social.functionAddPosts(username, content);
 
-2. Comment on Post
+
+Parameters:
+
+username (String)
+
+content (String)
+
+2️⃣ Comment on a Post
+
+Adds a comment to an existing post identified by GlobalPostID.
+
+Usage:
+
 social.functionCommentPost(postID, username, comment);
 
-3. Like a Post
+
+Parameters:
+
+postID (Number – Global Post ID)
+
+username (String – who is commenting)
+
+comment (String)
+
+3️⃣ Like a Post
+
+Increases the like count of a post.
+
+Usage:
+
 social.functionLikePost(postID);
 
-4. Delete a Post
+
+Parameters:
+
+postID (Number)
+
+4️⃣ Delete a Post
+
+Allows a user to delete their own post.
+
+Usage:
+
 social.functionDeletePost(username, postID);
 
-5. View Post Details
+
+Parameters:
+
+username (String – owner of the post)
+
+postID (Number – Global Post ID)
+
+5️⃣ View Post Details
+
+Shows all information about a post:
+
+Username who posted
+
+Content
+
+Like count
+
+Comments list
+
+UserPostID
+
+GlobalPostID
+
+Usage:
+
 social.functionViewDetails(postID);
+
+
+Parameters:
+
+postID (Number)
 
 ## Example Usage
 console.log(social.functionAddPosts("Test", "Hello"));
 console.log(social.functionCommentPost(0, "UserA", "Nice!"));
 console.log(social.functionLikePost(0));
 console.log(social.functionViewDetails(0));
+
+## Reference
+This is inspired by https://www.instagram.com/
