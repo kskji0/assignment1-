@@ -11,7 +11,7 @@ module.exports = {
   // User-specific PostID
   const UserPostID = userPostCount + 1;
 
-  // Global post ID BEFORE incrementing
+  // Global post ID before incrementing
   const globalPostID = WPostID;
 
   const newPost = { 
@@ -48,7 +48,7 @@ module.exports = {
     return "Post not found, please try again.";
   }},
 
-  //view post details by calling postID - global
+  //view post details by calling postID(global)
   functionViewDetails(postID){
   const post = posts.find(p => p.WPostID === postID);
 
@@ -58,13 +58,13 @@ module.exports = {
 
   let details = 
     ` Posted by: ${post.username}\n` +
-    ` Post #${post.WPostID}\n` +
+    ` Post #${post.WPostID}\n` + //global postID
     ` Content: ${post.content}\n` +
     ` Likes: ${post.likes}\n` +
     ` Comments:\n`;
 
 
-  if (post.comments.length === 0) {
+  if (post.comments.length === 0) { //check if post has comments
     details += "   No comments yet.";
   } else {
     post.comments.forEach((c, index) => {
@@ -83,7 +83,7 @@ functionLikePost(postID, username) {
   if (!post) {
     return "Post not found, please try again.";
   }
-  post.likes += 1;
+  post.likes += 1; //add likes for specified post
 
   return `${username} liked post #${postID}. Total likes: ${post.likes}`;
 
@@ -100,7 +100,7 @@ else if (posts[index].username !== username) {
   return "You can only delete your own post.";
 }
 else {
-  posts.splice(index, 1);
+  posts.splice(index, 1); //rmvs the post from the array
   return "Post deleted.";
 }
 
